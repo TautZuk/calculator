@@ -21,3 +21,21 @@ function divide(a, b) {
   divide = a / b;
   return divide;
 };
+
+//operations function
+function operate(a, b, operator) {
+  switch(operator) {
+    case "add":
+      return add(a, b);
+      break;
+    case "subtract":
+      return subtract(a, b);
+      break;
+    case "multiply":
+      return multiply(a, b);
+      break;
+    case "divide":
+      return divide(a ,b)
+      break;
+  };
+};

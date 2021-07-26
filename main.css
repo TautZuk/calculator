@@ -1,0 +1,69 @@
+body {
+  background-color: darkgray;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+#numbersfield {
+  grid-area: textbox;
+}
+#number0 {
+  grid-area: number0;
+}
+#number1 {
+  grid-area: number1;
+}
+#number2 {
+  grid-area: number2;
+}
+#number3 {
+  grid-area: number3;
+}
+#number4 {
+  grid-area: number4;
+}
+#number5 {
+  grid-area: number5;
+}
+#number6 {
+  grid-area: number6;
+}
+#number7 {
+  grid-area: number7;
+}
+#number8 {
+  grid-area: number8;
+}
+#number9 {
+  grid-area: number9;
+}
+#addition {
+  grid-area: addition;
+}
+#subraction {
+  grid-area: subtraction;
+}
+#multiplication {
+  grid-area: multiplication;
+}
+#division {
+  grid-area: division;
+}
+#equation {
+  grid-area: equation;
+}
+#clear {
+  grid-area: clear;
+}
+.calculator-container {
+  display: grid;
+  grid-template-areas:
+    'textbox textbox textbox textbox' 
+    'number7 number8 number9 addition'
+    'number4 number5 number6 subtraction'
+    'number1 number2 number3 multiplication'
+    'number0 equation clear division';
+}

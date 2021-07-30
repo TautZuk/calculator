@@ -1,3 +1,6 @@
+let field = document.querySelector("#numbersfield")
+console.log(field)
+
 // Addition
 function add(a, b) {
   sum = a + b;
@@ -39,3 +42,11 @@ function operate(a, b, operator) {
       break;
   };
 };
+
+document.getElementById("calculator-container").addEventListener("click", function(e) {
+  if(e.target.className =="numbers" && e.target.nodeName =="BUTTON") {
+      variable1 = e.target.textContent
+      field.value += variable1
+      displayvalue = field.value
+    }
+});

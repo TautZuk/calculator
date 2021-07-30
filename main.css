@@ -58,7 +58,7 @@ body {
 #clear {
   grid-area: clear;
 }
-.calculator-container {
+#calculator-container {
   display: grid;
   grid-template-areas:
     'textbox textbox textbox textbox' 

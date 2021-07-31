@@ -64,6 +64,8 @@ document.getElementById("calculator-container").addEventListener("click", functi
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operation=="") {
       variable2 = parseInt(field.value)
       field.value = operate(variable1, variable2, operator)
+      variable1 = field.value
       operator = "";
+      operation = "";
     }
 });

@@ -1,52 +1,69 @@
-let field = document.querySelector("#numbersfield")
-console.log(field)
+let field = document.querySelector("#numbersfield");
+let operation = "";
 
 // Addition
-function add(a, b) {
-  sum = a + b;
+function add(variable1, variable2) {
+  sum = variable1 + variable2;
   return sum;
 };
 
 //Subtraction
-function subtract(a, b) {
-  sub = a - b;
+function subtract(variable1, variable2) {
+  sub = variable1 - variable2;
   return sub;
 };
 
 //Multiplication
-function multiply(a, b) {
-  multi = a * b;
+function multiply(variable1, variable2) {
+  multi = variable1 * variable2;
   return multi;
 };
 
 //Division
-function divide(a, b) {
-  divide = a / b;
+function divide(variable1, variable2) {
+  divide = variable1 / variable2;
   return divide;
 };
 
 //operations function
-function operate(a, b, operator) {
+function operate(variable1, variable2, operator) {
   switch(operator) {
-    case "add":
-      return add(a, b);
+    case "addition":
+      return add(variable1, variable2);
       break;
-    case "subtract":
-      return subtract(a, b);
+    case "subtraction":
+      return subtract(variable1, variable2);
       break;
-    case "multiply":
-      return multiply(a, b);
+    case "multiplication":
+      return multiply(variable1, variable2);
       break;
-    case "divide":
-      return divide(a ,b)
+    case "division":
+      return divide(variable1 ,variable2)
       break;
   };
 };
 
 document.getElementById("calculator-container").addEventListener("click", function(e) {
-  if(e.target.className =="numbers" && e.target.nodeName =="BUTTON") {
-      variable1 = e.target.textContent
-      field.value += variable1
-      displayvalue = field.value
+  if(e.target.className =="numbers" && e.target.nodeName =="BUTTON" && operation=="") {
+      variable = e.target.textContent
+      field.value += variable
+    }
+    if(e.target.className =="numbers" && e.target.nodeName =="BUTTON" && !operation=="") {
+      variable = e.target.textContent
+      field.value += variable
+    }
+});
+document.getElementById("calculator-container").addEventListener("click", function(e) {
+  if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && operation=="") {
+      operation = e.target.textContent
+      operator = e.target.id
+      variable1= parseInt(field.value)
+      field.value = ""
+      return;
+    }
+  if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operation=="") {
+      variable2 = parseInt(field.value)
+      field.value = operate(variable1, variable2, operator)
+      operator = "";
     }
 });

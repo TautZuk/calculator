@@ -6,7 +6,11 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+#results {
+  grid-area: results;
+  height: 4vh;
+  color: black;
+}
 #numbersfield {
   grid-area: textbox;
 }
@@ -60,7 +64,9 @@ body {
 }
 #calculator-container {
   display: grid;
+  outline: 1px red solid;
   grid-template-areas:
+    'results results results results'
     'textbox textbox textbox textbox' 
     'number7 number8 number9 addition'
     'number4 number5 number6 subtraction'

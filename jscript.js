@@ -1,9 +1,10 @@
 let field = document.querySelector("#numbersfield");
+let results = document.querySelector("#results");
 let operation = "";
 let operator = "";
 let variable1;
 let variable2;
-
+let result = document.createElement("div")
 // Addition
 function add(variable1, variable2) {
   sum = variable1 + variable2;
@@ -41,39 +42,45 @@ function operate(variable1, variable2, operator) {
       return multiply(variable1, variable2);
       break;
     case "division":
-      return divide(variable1 ,variable2)
+      return divide(variable1, variable2)
       break;
   };
 };
 
 document.getElementById("calculator-container").addEventListener("click", function(e) {
-  if(e.target.className =="numbers" && e.target.nodeName =="BUTTON" && operation=="") {
+  if(e.target.className =="numbers" && e.target.nodeName =="BUTTON" && operator=="") {
       variable = e.target.textContent
       field.value += variable
     }
-    if(e.target.className =="numbers" && e.target.nodeName =="BUTTON" && !operation=="") {
+    if(e.target.className =="numbers" && e.target.nodeName =="BUTTON" && !operator=="") {
       variable = e.target.textContent
       field.value += variable
     }
 });
 document.getElementById("calculator-container").addEventListener("click", function(e) {
-  if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && operation=="") {
-      operation = e.target.textContent
+  if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && operator=="") {
       operator = e.target.id
       variable1= parseInt(field.value)
+      result.textContent = variable1
+      results.appendChild(result)
       field.value = ""
       return;
     }
-  if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operation=="") {
-      variable2 = parseInt(field.value)
-      field.value = operate(variable1, variable2, operator)
-      variable1 = field.value
-      operator = "";
-      operation = "";
+  if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operator=="") {
+    variable2 = parseInt(field.value)
+    result.textContent = operate(variable1, variable2, operator)
+    results.appendChild(result)
+    field.value = ""
+    variable1 = parseInt(results.textContent)
+    operator = e.target.id;
     }
 });
 const equation = document.querySelector("#equation")
 equation.addEventListener("click", function(e) {
   variable2 = parseInt(field.value)
-  field.value = operate(variable1, variable2, operator)
+  result.textContent = operate(variable1, variable2, operator)
+  results.appendChild(result)
+  field.value = ""
+  variable1 = parseInt(results.textContent)
+  operator = "";
 })

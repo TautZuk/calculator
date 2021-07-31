@@ -1,5 +1,8 @@
 let field = document.querySelector("#numbersfield");
 let operation = "";
+let operator = "";
+let variable1;
+let variable2;
 
 // Addition
 function add(variable1, variable2) {
@@ -69,3 +72,8 @@ document.getElementById("calculator-container").addEventListener("click", functi
       operation = "";
     }
 });
+const equation = document.querySelector("#equation")
+equation.addEventListener("click", function(e) {
+  variable2 = parseInt(field.value)
+  field.value = operate(variable1, variable2, operator)
+})

@@ -72,11 +72,11 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operator=="") {
     variable2 = parseInt(field.value);
     operationResult = operate(variable1, variable2, operator);
-    result.textContent = operationResult;
-    results.appendChild(result);
-    field.value = "";
-    variable1 = parseInt(field.value);
     operator = e.target.id;
+    operation = e.target.textContent;
+    result.textContent = operationResult + " " + operation;
+    variable1 = operationResult;
+    field.value = "";
     };
 });
 

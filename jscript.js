@@ -61,18 +61,21 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
 document.getElementById("calculator-container").addEventListener("click", (e) => {
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && operator=="") {
       operator = e.target.id;
-      variable1= parseInt(field.value);
-      result.textContent = variable1;
+      operation = e.target.textContent;
+      variable = parseInt(field.value);
+      result.textContent = variable + " " + operation;
       results.appendChild(result);
+      variable1 = parseInt(field.value);
       field.value = "";
       return;
     };
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operator=="") {
     variable2 = parseInt(field.value);
-    result.textContent = operate(variable1, variable2, operator);
+    operationResult = operate(variable1, variable2, operator);
+    result.textContent = operationResult;
     results.appendChild(result);
     field.value = "";
-    variable1 = parseInt(results.textContent);
+    variable1 = parseInt(field.value);
     operator = e.target.id;
     };
 });
@@ -81,10 +84,10 @@ const equation = document.querySelector("#equation");
 equation.addEventListener("click", () => {
   variable2 = parseInt(field.value);
   operationResult = operate(variable1, variable2, operator);
-  result.textContent = operationResult;
-  results.appendChild(result);
-  field.value = "";
-  variable1 = parseInt(results.textContent);
+  field.value = operationResult;
+  result.textContent = variable1 + " " + operation + " " + variable2 + " =";
+  variable1 = parseInt(field.value);
+  variable2 = "";
   operator = "";
 });
 
@@ -95,5 +98,6 @@ clearData.addEventListener("click", () => {
   variable1 = "";
   variable2 = "";
   operator = "";
+  operation = "";
 }
 )

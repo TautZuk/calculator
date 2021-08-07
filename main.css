@@ -71,6 +71,8 @@ body {
 #calculator-container {
   display: grid;
   outline: 1px red solid;
+  height: 50vh;
+  width: 25vw;
   grid-template-areas:
     'results results results results'
     'textbox textbox textbox textbox'

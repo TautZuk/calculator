@@ -59,6 +59,12 @@ body {
 #equation {
   grid-area: equation;
 }
+#floatPoint {
+  grid-area: float;
+}
+#backspace {
+  grid-area: backspace;
+}
 #clear {
   grid-area: clear;
 }
@@ -67,9 +73,10 @@ body {
   outline: 1px red solid;
   grid-template-areas:
     'results results results results'
-    'textbox textbox textbox textbox' 
+    'textbox textbox textbox textbox'
+    'backspace backspace clear clear' 
     'number7 number8 number9 addition'
     'number4 number5 number6 subtraction'
     'number1 number2 number3 multiplication'
-    'number0 equation clear division';
+    'number0 float equation division';
 }

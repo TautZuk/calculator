@@ -66,15 +66,15 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && operator=="") {
       operator = e.target.id;
       operation = e.target.textContent;
-      variable = parseInt(field.value);
+      variable = parseFloat(field.value);
       result.textContent = variable + " " + operation;
       results.appendChild(result);
-      variable1 = parseInt(field.value);
+      variable1 = parseFloat(field.value);
       field.value = "";
       return;
     };
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operator=="") {
-    variable2 = parseInt(field.value);
+    variable2 = parseFloat(field.value);
     operationResult = operate(variable1, variable2, operator);
     operator = e.target.id;
     operation = e.target.textContent;
@@ -86,16 +86,16 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
 
 const equation = document.querySelector("#equation");
 equation.addEventListener("click", () => { 
-  variable2 = parseInt(field.value);
+  variable2 = parseFloat(field.value);
   if (typeof(variable1) !== "number" || typeof(variable2) !== "number" || variable1 == NaN || variable2 == NaN || typeof(operator) !== "string" || operator == "") {
     result.textContent = "Oops! Something went wrong!"
-    field.value = "Please CE to start over"
+    field.value = "Please AC to start over"
     return;
   }
   operationResult = operate(variable1, variable2, operator);
   field.value = operationResult;
   result.textContent = variable1 + " " + operation + " " + variable2 + " =";
-  variable1 = parseInt(field.value);
+  variable1 = parseFloat(field.value);
   variable2 = "";
   operator = "";
 });
@@ -110,3 +110,9 @@ clearData.addEventListener("click", () => {
   operation = "";
 }
 )
+
+const floatPoint = document.querySelector("#floatPoint");
+floatPoint.addEventListener("click", (e) => {
+  field.value += e.target.textContent
+  
+})

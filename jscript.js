@@ -26,10 +26,10 @@ function multiply(variable1, variable2) {
 //Division
 function divide(variable1, variable2) {
   if (variable2 == 0) {
-    return "Nice try, smartpants!"
+    return "To infinity and beyond!"
   } else {
-  divide = variable1 / variable2;
-  return divide;
+  div = variable1 / variable2;
+  return div;
   };
 };
 

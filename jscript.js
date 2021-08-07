@@ -25,8 +25,12 @@ function multiply(variable1, variable2) {
 
 //Division
 function divide(variable1, variable2) {
+  if (variable2 == 0) {
+    return "Nice try, smartpants!"
+  } else {
   divide = variable1 / variable2;
   return divide;
+  };
 };
 
 //operations function
@@ -81,8 +85,13 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
 });
 
 const equation = document.querySelector("#equation");
-equation.addEventListener("click", () => {
+equation.addEventListener("click", () => { 
   variable2 = parseInt(field.value);
+  if (typeof(variable1) !== "number" || typeof(variable2) !== "number" || variable1 == NaN || variable2 == NaN || typeof(operator) !== "string" || operator == "") {
+    result.textContent = "Oops! Something went wrong!"
+    field.value = "Please CE to start over"
+    return;
+  }
   operationResult = operate(variable1, variable2, operator);
   field.value = operationResult;
   result.textContent = variable1 + " " + operation + " " + variable2 + " =";

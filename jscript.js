@@ -5,6 +5,7 @@ let operator = "";
 let variable1;
 let variable2;
 const result = document.createElement("div");
+
 // Addition
 function add(variable1, variable2) {
   sum = variable1 + variable2;
@@ -120,6 +121,12 @@ floatPoint.addEventListener("click", (e) => {
   field.value += e.target.textContent
   isFloatDisabled()
   
+})
+
+const backspace = document.querySelector("#backspace")
+backspace.addEventListener("click", () => {
+  field.value = (field.value).slice(0, (field.value).length - 1)
+  isFloatDisabled()
 })
 
 function isFloatDisabled() {

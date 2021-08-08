@@ -71,6 +71,7 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
       results.appendChild(result);
       variable1 = parseFloat(field.value);
       field.value = "";
+      isFloatDisabled()
       return;
     };
   if(e.target.className =="operation" && e.target.nodeName =="BUTTON" && !operator=="") {
@@ -81,6 +82,7 @@ document.getElementById("calculator-container").addEventListener("click", (e) =>
     result.textContent = operationResult + " " + operation;
     variable1 = operationResult;
     field.value = "";
+    isFloatDisabled()
     };
 });
 
@@ -96,6 +98,7 @@ equation.addEventListener("click", () => {
   field.value = operationResult;
   result.textContent = variable1 + " " + operation + " " + variable2 + " =";
   variable1 = parseFloat(field.value);
+  isFloatDisabled()
   variable2 = "";
   operator = "";
 });
@@ -108,11 +111,24 @@ clearData.addEventListener("click", () => {
   variable2 = "";
   operator = "";
   operation = "";
+  isFloatDisabled()
 }
 )
 
-const floatPoint = document.querySelector("#floatPoint");
+let floatPoint = document.querySelector("#floatPoint");
 floatPoint.addEventListener("click", (e) => {
   field.value += e.target.textContent
+  isFloatDisabled()
   
 })
+
+function isFloatDisabled() {
+  floatPoint = document.querySelector("#floatPoint");
+  let float = /[.]+/;
+  if (float.test(field.value) == true) {
+    floatPoint.disabled = true;
+  } else {
+    floatPoint.disabled = false;
+  }
+
+}

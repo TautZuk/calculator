@@ -7,19 +7,23 @@ body {
   justify-content: center;
   align-items: center;
 }
+button {
+  padding: 1em 1em 1em 1em;
+}
 #results {
   grid-area: results;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   background-color: whitesmoke;
-  min-height: 1.5em;
+  min-height: 2em;
   color: darkgray;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 #numbersfield {
   grid-area: textbox;
   text-align: right;
+  min-height: 2em;
   font-size: 2em;
 }
 .operation {
@@ -89,10 +93,9 @@ body {
 
 #calculator-container {
   display: grid;
-  border: 3px black solid;
-  height: 50vh;
-  width: 25vw;
-  grid-gap: 2px;
+  border: 0.3em black solid;
+  box-shadow: 0.7em 0.5em 0.5em black;
+  grid-gap: 0.1em;
   grid-template-areas:
     'results results results results'
     'textbox textbox textbox textbox'
